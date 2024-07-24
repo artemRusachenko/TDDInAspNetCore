@@ -1,7 +1,6 @@
 ﻿using RoomBookingApp.Core.DataServices;
 using RoomBookingApp.Core.Domain;
 using RoomBookingApp.Core.Models;
-using Xunit;
 
 namespace RoomBookingApp.Core.Processors
 {
