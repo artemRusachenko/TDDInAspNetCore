@@ -22,13 +22,13 @@ namespace TestProject
                 Email = "test@request.com",
                 Date = new DateTime(2021, 10, 20)
             };
-            _availableRooms = new List<Room>() { new Room() };
+            _availableRooms = new List<Room>() { new Room() { Id = 1 } };
 
             _roomBookingServiceMock = new Mock<IRoomBookingService>();
             _roomBookingServiceMock.Setup(q => q.GetAvalibleRooms(_request.Date))
                 .Returns(_availableRooms);
-            _processor = new RoomBookingRequestProcessor(_roomBookingServiceMock.Object);
 
+            _processor = new RoomBookingRequestProcessor(_roomBookingServiceMock.Object);
         }
 
         [Fact]
@@ -43,10 +43,6 @@ namespace TestProject
             Assert.Equal(_request.Email, result.Email);
             Assert.Equal(_request.Date, result.Date);
 
-            result.ShouldNotBeNull();
-            result.FullName.ShouldBe(_request.FullName);
-            result.Email.ShouldBe(_request.Email);
-            result.Date.ShouldBe(_request.Date);
         }
 
         [Fact]
@@ -79,6 +75,7 @@ namespace TestProject
             savedBooking.FullName.ShouldBe(_request.FullName);
             savedBooking.Email.ShouldBe(_request.Email);
             savedBooking.Date.ShouldBe(_request.Date);
+            savedBooking.RoomId.ShouldBe(_availableRooms.First().Id);
         }
 
         [Fact]
