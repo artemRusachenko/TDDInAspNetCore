@@ -4,7 +4,7 @@ using RoomBookingApp.Core.Models;
 
 namespace RoomBookingApp.Core.Processors
 {
-    public class RoomBookingRequestProcessor
+    public class RoomBookingRequestProcessor : IRoomBookingRequestProcessor
     {
         private readonly IRoomBookingService _roomBookingService;
 
@@ -36,7 +36,7 @@ namespace RoomBookingApp.Core.Processors
                 result.Flag = BookingResultFlag.Failure;
             }
 
-            return result; 
+            return result;
         }
 
         private static TRoomBooking CreateRoomBookingObject<TRoomBooking>(RoomBookingRequest bookingRequest) where TRoomBooking

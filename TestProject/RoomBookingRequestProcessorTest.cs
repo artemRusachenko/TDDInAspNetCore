@@ -84,7 +84,6 @@ namespace TestProject
             _availableRooms.Clear();
             _processor.BookRoom(_request);
             _roomBookingServiceMock.Verify(q => q.Save(It.IsAny<RoomBooking>()), Times.Never);
-
         }
 
 
