@@ -16,8 +16,6 @@ conn.Open();
 
 builder.Services.AddDbContext<RoomBookingAppDbContext>(opt => opt.UseSqlite(conn));
 
-
-
 builder.Services.AddScoped<IRoomBookingService, RoomBookingService>();
 builder.Services.AddScoped<IRoomBookingRequestProcessor, RoomBookingRequestProcessor>();
 

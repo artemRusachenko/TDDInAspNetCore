@@ -7,11 +7,6 @@ namespace RoomBookingApp.Persistence.Tests
     public class RoomBookingServiceTest
     {
 
-/*        public RoomBookingServiceTest() 
-        { 
-        
-        }*/
-
         [Fact]
         public void Should_Return_Available_Rooms()
         {
